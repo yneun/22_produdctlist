@@ -24,14 +24,15 @@ int loadData(Product *p){
     fclose(fp);
     printf("=> 로딩 성공!\n");
 #ifdef DEBUG
-    printf("로딩된 상품 수: %d\n",i);
+    printf("로딩된 총 상품의 개수: %d\n",i);
 #endif
     return i;
     }
 }
 
+
 void listProduct(Product *p, int count){
-    printf("=====================================\n");
+    printf("==============================\n");
     for(int i=0;i<count;i++){
         if(p[i].price==-1) continue;
         printf("%2d ",i+1);
@@ -40,13 +41,15 @@ void listProduct(Product *p, int count){
     printf("\n");
 };
 
+
 int selectDataNo(Product *p, int count){
     int num;
     listProduct(p,count);
-    printf("번호는 (취소:0)? ");
+    printf("원하는 상품의 해당번호는 (취소 시 '0')? ");
     scanf("%d",&num);
     return num;
 };
+
 
 void saveData(Product *p,int count){
     FILE *fp;
@@ -59,9 +62,10 @@ void saveData(Product *p,int count){
     fclose(fp);
     printf("=> 저장됨!\n");
 #ifdef DEBUG
-    printf("총 저장된 상품 수: %d\n",count);
+    printf("총 저장된 상품의 개수: %d\n",count);
 #endif
-}
+};
+
 
 int createProduct(Product *p){
     printf("상품의 이름은? ");
@@ -87,11 +91,13 @@ int createProduct(Product *p){
     return 1;
 };
 
+
 void readProduct(Product p){
     printf("    %s \n",p.name);
     printf("    %s \n",p.info);
     printf("    %d \n",p.price);
 };
+
 
 void infoProduct(Product p){
     printf("    %s \n",p.name);
@@ -104,6 +110,7 @@ void infoProduct(Product p){
     else strcpy(method,"택배배송");
     printf("    배송방법: %s \n",method);
 };
+
 
 int updateProduct(Product *p){
     printf("상품의새로운 이름은? ");
@@ -129,10 +136,12 @@ int updateProduct(Product *p){
     return 1;
 };
 
+
 int deleteProduct(Product *p){
     p->price=-1;
     return 1;
 };
+
 
 void searchName(Product *p,int count){
     int stime=0;
@@ -150,9 +159,10 @@ void searchName(Product *p,int count){
             stime++;
         }
     }
-    if(stime==0) printf("=> 검색된 데이터 없음!");
+    if(stime==0) printf("=> 검색된 데이터가 존재하지 않음");
     printf("\n");
-}
+};
+
 
 void searchPrice(Product *p,int count){
     int stime=0;
@@ -173,7 +183,8 @@ void searchPrice(Product *p,int count){
     if(stime==0) printf("=> 검색된 데이터 없음!");
 	    printf("\n");
             stime++;
-}
+};
+
 
 void searchOrigin(Product *p,int count){
     int stime=0;
@@ -194,4 +205,4 @@ void searchOrigin(Product *p,int count){
     if(stime==0) printf("=> 검색된 데이터 없음!");
     printf("\n");
             stime++;
-}
+};
