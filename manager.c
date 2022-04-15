@@ -28,7 +28,7 @@ int loadData(Product *p){
 #endif
     return i;
     }
-}
+};
 
 
 void listProduct(Product *p, int count){
@@ -93,7 +93,7 @@ int createProduct(Product *p){
 
 
 void readProduct(Product p){
-    printf("    %s \n",p.name);
+    printf(" %s \n",p.name);
     printf("    %s \n",p.info);
     printf("    %d \n",p.price);
 };
@@ -150,7 +150,7 @@ void searchName(Product *p,int count){
     printf("검색할 이름? ");
     scanf("%s",search);
 
-    printf("=====================================\n");
+    printf("==============================\n");
     for(int i=0;i<count;i++){
         if(p[i].price==-1) continue;
         if(strstr(p[i].name,search)){
@@ -171,7 +171,7 @@ void searchPrice(Product *p,int count){
     printf("검색할 가격은? ");
     scanf("%d",&search);
 
-    printf("=====================================\n");
+    printf("==============================\n");
     for(int i=0;i<count;i++){
         if(p[i].price==-1) continue;
         if(p[i].price==search){
@@ -193,7 +193,7 @@ void searchOrigin(Product *p,int count){
     printf("검색할 원산지는? ");
     scanf("%s",search);
 
-    printf("=====================================\n");
+    printf("==============================\n");
     for(int i=0;i<count;i++){
         if(p[i].price==-1) continue;
         if(strstr(p[i].origin,search)){
