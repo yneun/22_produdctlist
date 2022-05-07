@@ -15,11 +15,11 @@ int loadData(Product *p){
     for(;i<100;i++){
         fscanf(fp,"%s",p[i].name);
         if(feof(fp)) break;
-        fscanf(fp,"%s",p[i].info);
         fscanf(fp,"%s",p[i].weight);
         fscanf(fp,"%s",p[i].origin);
         fscanf(fp,"%d",&p[i].price);
         fscanf(fp,"%d",&p[i].deliver);
+        fscanf(fp,"%[^\n]s",p[i].info);
     }
     fclose(fp);
     printf("=> 로딩 성공!\n");
@@ -57,7 +57,7 @@ void saveData(Product *p,int count){
 
     for(int i=0;i<count;i++){
         if(p[i].price==-1) continue;
-        fprintf(fp,"%s %s %s %s %d %d\n",p[i].name,p[i].info,p[i].weight,p[i].origin,p[i].price,p[i].deliver);
+        fprintf(fp,"%s %s %s %d %d %s\n",p[i].name,p[i].weight,p[i].origin,p[i].price,p[i].deliver,p[i].info);
     }
     fclose(fp);
     printf("=> 저장됨!\n");
